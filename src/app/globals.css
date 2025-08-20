@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: var(--font-poppins), sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-electricBlue text-black px-6 py-3 rounded-lg font-medium hover:bg-electricBlue/90 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border border-electricBlue text-electricBlue px-6 py-3 rounded-lg font-medium hover:bg-electricBlue hover:text-black transition-colors;
+  }
+
+  .input-field {
+    @apply bg-black border border-electricBlue/30 text-white px-4 py-3 rounded-lg focus:border-electricBlue focus:outline-none transition-colors;
+  }
+
+  .sidebar-link {
+    @apply flex items-center space-x-3 px-4 py-3 text-white/70 hover:text-electricBlue hover:bg-black/50 rounded-lg transition-colors;
+  }
+
+  .sidebar-link.active {
+    @apply text-electricBlue bg-electricBlue/10;
+  }
+
+  /* Custom slider styles */
+  .slider {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #4a9eff;
+    cursor: pointer;
+    border: 2px solid #000;
+  }
+
+  .slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #4a9eff;
+    cursor: pointer;
+    border: 2px solid #000;
+  }
+
+  .slider::-webkit-slider-track {
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .slider::-moz-range-track {
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Fix for popup/modal z-index issues */
+  .modal-backdrop {
+    @apply fixed inset-0 bg-black/80 backdrop-blur-sm;
+    z-index: 1000;
+  }
+
+  .modal-content {
+    @apply bg-black border border-electricBlue/20 rounded-xl;
+    z-index: 1001;
+  }
+
+  /* Ensure fullscreen elements are on top */
+  .fullscreen-container {
+    z-index: 9999 !important;
+  }
+
+  /* Fix for video player in fullscreen */
+  .video-fullscreen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 9999 !important;
+  }
+
+}
+
+/* Fullscreen API styles */
+:fullscreen {
+  background: black;
+}
+
+:-webkit-full-screen {
+  background: black;
+}
+
+:-moz-full-screen {
+  background: black;
+}
+
+:-ms-fullscreen {
+  background: black;
+}
+
+
